@@ -1,5 +1,5 @@
 function extractData(id) {
-    d3.json("samples.json").then (data =>{
+    d3.json("../data/samples.json").then (data =>{
         console.log(data)
         var otuIds = data.samples[0].otu_ids;
         console.log(otuIds)
@@ -57,7 +57,7 @@ function extractData(id) {
     });
 }
     function sampleMetadata(id) {
-        d3.json("samples.json").then((data1)=> {
+        d3.json("../data/samples.json").then((data1)=> {
             var metaData = data1.metadata;
             console.log(metaData)
             var metadataString = metaData.filter(metadata => metadata.id.toString() ===  id)[0];
@@ -76,7 +76,7 @@ function extractData(id) {
 
     function init() {
         var dropdownMenu = d3.select("#selDataset");
-        d3.json("samples.json").then((data)=> {
+        d3.json("../data/samples.json").then((data)=> {
             console.log(data)
             data.names.forEach(function(name) {
                 dropdownMenu.append("option").text(name).property("value");
